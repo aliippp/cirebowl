@@ -8,8 +8,7 @@ type Route = {
 
 const routes: Route[] = [
   { path: '/', name: 'Home' },
-  { path: '/menu', name: 'Menu' },
-  { path: '/contact', name: 'Contact' }
+  { path: '/menu', name: 'Menu' }
 ]
 </script>
 
