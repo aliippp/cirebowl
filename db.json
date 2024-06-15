@@ -1,0 +1,34 @@
+{
+  "foods": [
+    {
+      "id": "1",
+      "name": "Chicken Based",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.",
+      "price": 2.3
+    },
+    {
+      "id": "2",
+      "name": "Beef Based",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.",
+      "price": 3.5
+    },
+    {
+      "id": "3",
+      "name": "Pork Based",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.",
+      "price": 4.2
+    },
+    {
+      "id": "4",
+      "name": "Vegetarian Meals",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.",
+      "price": 2.0
+    },
+    {
+      "id": "5",
+      "name": "Seafood Based",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.",
+      "price": 5.0
+    }
+  ]
+}
