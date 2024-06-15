@@ -34,6 +34,7 @@ const items = cartStore.cart
             :key="item.id"
             :id="item.id"
             :name="item.name"
+            :price="item.price"
             :size="item.size"
             :option="item.options"
             :qty="item.qty"

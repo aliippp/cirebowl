@@ -1,4 +1,3 @@
-import type { Food } from '@/utils/types'
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
 import { useToast } from 'vue-toastification'
@@ -16,21 +15,21 @@ export const useCartStore = defineStore('cart', () => {
   const toast = useToast()
   const cart = ref<CartItem[]>([])
 
-  function addToCart(food: Food, size: string, options: string, qty: number) {
+  function addToCart(name: string, price: number, size: string, options: string, qty: number) {
     if (
       cart.value.some(
-        (item) => item.name === food.name && item.size === size && item.options === options
+        (item) => item.name === name && item.size === size && item.options === options
       )
     ) {
       const index = cart.value.findIndex(
-        (item) => item.name === food.name && item.size === size && item.options === options
+        (item) => item.name === name && item.size === size && item.options === options
       )
       cart.value[index].qty += qty
     } else {
       cart.value.push({
         id: cart.value.length + 1,
-        name: food.name,
-        price: food.price,
+        name,
+        price,
         size,
         options,
         qty
@@ -48,10 +47,22 @@ export const useCartStore = defineStore('cart', () => {
     cart.value = []
   }
 
+  function incrementQty(id: number) {
+    cart.value[id].qty++
+  }
+
+  function decrementQty(id: number) {
+    if (cart.value[id].qty > 1) {
+      cart.value[id].qty--
+    }
+  }
+
   return {
     cart,
     addToCart,
     removeItem,
+    incrementQty,
+    decrementQty,
     clearCart
   }
 })

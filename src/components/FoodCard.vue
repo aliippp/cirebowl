@@ -12,7 +12,7 @@ defineProps<PropTypes>()
   <RouterLink :to="{ name: 'food', params: { id: food.id } }">
     <div class="card">
       <div class="card-image">
-        <figure class="image is-16by9">
+        <figure class="image is-16by9 is-clickable">
           <img
             src="https://bulma.io/assets/images/placeholders/1280x960.png"
             alt="Placeholder image"

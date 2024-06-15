@@ -22,9 +22,18 @@ const setSizeActiveButton = (index: number) => {
 }
 
 const option = ref()
+const price = computed((): number => {
+  if (food.value && food.value.options[optionActiveButton.value]) {
+    const foodPrice = Object.values(sizes.value[sizeActiveButton.value])[0]
+    const optionPrice = Object.values(food.value.options[optionActiveButton.value])[0] || 0
+    return foodPrice + optionPrice
+  }
+  return 0
+})
 
 const setOptionActiveButton = (index: number) => {
   optionActiveButton.value = index
+  option.value = food.value?.options[index]
   qty.value = 1
 }
 
@@ -118,7 +127,9 @@ const totalPrice = computed((): number | undefined => {
 
             <button
               class="button is-primary is-fullwidth"
-              @click="food && cartStore.addToCart(food, size, option, qty)"
+              @click="
+                food && cartStore.addToCart(food.name, price, size, Object.keys(option)[0], qty)
+              "
             >
               Add to cart
             </button>
