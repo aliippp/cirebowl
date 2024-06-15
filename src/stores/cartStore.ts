@@ -1,6 +1,7 @@
 import type { Food } from '@/utils/types'
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
+import { useToast } from 'vue-toastification'
 
 interface CartItem {
   id: number
@@ -12,6 +13,7 @@ interface CartItem {
 }
 
 export const useCartStore = defineStore('cart', () => {
+  const toast = useToast()
   const cart = ref<CartItem[]>([])
 
   function addToCart(food: Food, size: string, options: string, qty: number) {
@@ -34,6 +36,7 @@ export const useCartStore = defineStore('cart', () => {
         qty
       })
     }
+    toast.success('Item added to cart')
   }
 
   function removeItem(id: number) {
