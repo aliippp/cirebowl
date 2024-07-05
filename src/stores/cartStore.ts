@@ -48,12 +48,12 @@ export const useCartStore = defineStore('cart', () => {
   }
 
   function incrementQty(id: number) {
-    cart.value[id].qty++
+    cart.value.find((item) => item.id === id)!.qty++
   }
 
   function decrementQty(id: number) {
-    if (cart.value[id].qty > 1) {
-      cart.value[id].qty--
+    if (cart.value.find((item) => item.id === id)!.qty > 1) {
+      cart.value.find((item) => item.id === id)!.qty--
     }
   }
 
@@ -65,4 +65,6 @@ export const useCartStore = defineStore('cart', () => {
     decrementQty,
     clearCart
   }
+},  {
+  persist: true
 })

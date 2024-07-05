@@ -34,7 +34,12 @@ const props = defineProps<PropType>()
               -
             </button>
             <span class="button">{{ props.qty }}</span>
-            <button class="button" @click="cartStore.incrementQty(props.id)">+</button>
+            <button
+              class="button"
+              @click="cartStore.incrementQty(props.id)"
+            >
+              +
+            </button>
           </div>
           <button class="button is-danger is-light" @click="cartStore.removeItem(props.id)">
             Remove

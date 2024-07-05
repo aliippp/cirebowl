@@ -2,7 +2,7 @@
 import { useCartStore } from '@/stores/cartStore'
 import { useFoodStore } from '@/stores/foodStore'
 import type { Food } from '@/utils/types'
-import { computed, onMounted, ref } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 
 const foodStore = useFoodStore()
