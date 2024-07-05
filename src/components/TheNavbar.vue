@@ -1,5 +1,9 @@
 <script setup lang="ts">
-import { RouterLink } from 'vue-router'
+import { RouterLink, useRoute, useRouter } from 'vue-router'
+
+
+const router = useRouter();
+const route = useRoute();
 
 type Route = {
   path: string
@@ -10,6 +14,15 @@ const routes: Route[] = [
   { path: '/', name: 'Home' },
   { path: '/menu', name: 'Menu' }
 ]
+
+const navigateToCheckoutOrBack = () => {
+  if (route.path === '/checkout') {
+    router.go(-1); // Go back to the previous page
+  } else {
+    router.push('/checkout'); // Navigate to the checkout page
+  }
+};
+
 </script>
 
 <template>
@@ -37,11 +50,11 @@ const routes: Route[] = [
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-            <RouterLink to="/checkout" class="button is-primary">
+            <button @click="navigateToCheckoutOrBack" class="button is-primary">
               <span class="icon" style="color: white">
                 <i class="fas fa-shopping-cart"></i>
               </span>
-            </RouterLink>
+            </button>
           </div>
         </div>
       </div>

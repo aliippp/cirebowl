@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import CheckoutCard from '@/components/CheckoutCard.vue'
-import CheckoutTotal from '@/components/CheckoutTotal.vue'
 import { useCartStore } from '@/stores/cartStore'
 
 const cartStore = useCartStore()
@@ -13,7 +12,6 @@ const items = cartStore.cart
 
     <div class="columns">
       <div class="column">
-        <div class="columns is-multiline">
           <div class="column is-full" v-for="item in items" :key="item.id">
             <CheckoutCard
               :id="item.id"
@@ -22,10 +20,8 @@ const items = cartStore.cart
               :option="item.options"
               :qty="item.qty"
             />
-          </div>
         </div>
       </div>
-
     </div>
   </main>
 </template>
